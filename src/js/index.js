@@ -19,48 +19,48 @@
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    // 1️⃣ Capturar os elementos do HTML
+    // Pegar os elementos do HTML
     const botao = document.getElementById("randomAdvice");
     const numeroConselho = document.getElementById("numeroConselho");
     const conselhoTexto = document.getElementById("conselho");
 
-    // 2️⃣ Criar a função assíncrona para buscar dados da API
+    // Criar a função assíncrona para buscar dados da API
     async function buscarConselho() {
         try {
-            // 3️⃣ Fazer a requisição para a API
+            //Fazer a requisição para a API
             const resposta = await fetch("https://api.adviceslip.com/advice");
-            
-            // 4️⃣ Verificar se a resposta da API é válida
+
+            // Verificar se a resposta da API é válida
             if (!resposta.ok) {
                 throw new Error("Erro ao buscar conselho");
             }
-            
-            // 5️⃣ Converter os dados para JSON
+
+            // Converter os dados para JSON
             const dados = await resposta.json();
-            
-            // 6️⃣ Atualizar o HTML com os dados da API
+
+            // Atualizar o HTML com os dados da API
             numeroConselho.innerText = `ADVICE #${dados.slip.id}`;
             conselhoTexto.innerText = `"${dados.slip.advice}"`;
         } catch (erro) {
-            // 7️⃣ Lidar com erros
+            // Lidar com erros
             console.error("Erro ao buscar conselho:", erro);
             conselhoTexto.innerText = "Erro ao carregar conselho. Tente novamente.";
         }
     }
 
-    // 8️⃣ Criar uma função temporária para testar conselhos longos
+    // Criar uma função temporária para testar conselhos longos
     function testarConselhoLongo() {
-        numeroConselho.innerText = "ADVICE #12";
+        numeroConselho.innerText = "ADVICE #999";
         conselhoTexto.innerText = "Este é um conselho extremamente longo que serve para testar a responsividade do layout. Se o texto quebrar ou sair da tela, ajustes no CSS são necessários para garantir uma exibição adequada.";
     }
 
-    // 9️⃣ Associar a função ao botão
+    // Associar a função ao botão
     botao.addEventListener("click", buscarConselho);
 
-    // 🔟 Carregar um conselho automaticamente ao iniciar a página
+    // Carregar um conselho automaticamente ao iniciar a página
     //buscarConselho();
-    
-    // 1️⃣1️⃣ Ativar o teste de conselho longo descomentando a linha abaixo
+
+    // Ativar o teste de conselho longo descomentando a linha abaixo
     testarConselhoLongo();
 });
 
