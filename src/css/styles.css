@@ -1,97 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap');
+
+
 body {
-    background-color: hsl(218, 23%, 16%);
+    background-color: var(--background-color);
+    height: 100vh;
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
 }
 
-.advice_card {
+hr {
+    width: 100%;
+}
 
-    background-color: hsl(217, 19%, 24%);
-    font-family: 'Manrope',
-        sans-serif;
-
-    margin: 260px 640px;
-    
-    border-radius: 15px;
-    font-weight: 800;
+.container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    align-content: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    position: relative;
 }
 
-
-.advice_card #numeroConselho {
+.card {
+    background-color: var(--advice-card-color);
     display: flex;
     flex-direction: column;
-    align-self: flex;
-    margin-top: 80px;
-    margin-bottom: 10px;
-    color: hsl(150, 100%, 66%);
-    font-size: 14px;
-    letter-spacing: 5.9px;
-    padding-top: 10px;
-    text-align: center;
-
+    align-items: center;
+    justify-content: space-between;
+    width: 360px;
+    height: 220px;
+    border-radius: 10px;
+    margin-top: 20vh;
 }
 
-.advice_card, #conselho{
-    display: flex;
-    font-size: 28px;
-    font-family: 'Manrope',
-        sans-serif;
-    flex-direction: column;
-    align-self: flex;
-    margin-bottom: 10px;
-    color: white;
+#numConselho {
+    color: var(--advice-dice-color);
+    font-size: 9px;
+    padding: 32px;
     letter-spacing: 4px;
+}
+
+#resultado {
+    color: var(--text-color);
+    font-size: 20px;
     text-align: center;
-    min-height: 145px;
-    max-height: 50;
-    padding-top: 25px;
-    padding-left: 30px;
-    padding-right: 24px;
-    
 }
 
-.advice_card .break{
-    display: flex;
-    padding-top: 30px;
-    
+.pattern-divider {
+    width: 82%;
+    padding-bottom: 46px;
+    margin-top: 20px;
 }
 
-.advice_card #randomAdvice {
-    padding: 23px;
+
+.botao {
+    background-color: var(--advice-dice-color);
+    position: absolute;
+    top: 73%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 44px;
+    width: 44px;
     border-radius: 50%;
-    border: none;
-    background-color: hsl(150, 100%, 66%);
-    margin-bottom: 40px;
-}
-
-.advice_card #randomAdvice:hover {
-    cursor: pointer;
-    box-shadow: 0px 0px 69px 10px hsl(150, 100%, 66%);
-}
-
-.attribution {
-    display: flex;
-    align-items: flex-end;
-    font-size: 11px;
+    border: 0;
     text-align: center;
+    font-size: 0;
+    cursor: pointer;
 }
 
-.attribution a {
-    color: hsl(228, 45%, 44%);
+
+.botao:hover {
+    box-shadow: 0 0 30px hsl(150, 100%, 66%)
 }
 
+.icon {
+    width: 15px;
+}
 
+@media (max-width: 500px) {
+    .card {
+        width: 230px;
+        height: 210px;
+    }
 
+    #numConselho {
+        font-size: 8px;
+        padding: 29px;
+        letter-spacing: 4px;
+    }
 
+    #resultado {
+        font-size: 17px;
+        text-align: center;
+    }
 
+    .pattern-divider {
+        width: 82%;
+        padding-bottom: 46px;
+        margin-top: 20px;
+    }
 
+    .botao {
+        top: 72%;
+    }
 
-
-
-
-
-
-
+}
